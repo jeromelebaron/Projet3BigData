@@ -23,4 +23,12 @@ public class CategorieBusiness {
 			return categorie;
         	
         }
+      
+        public static Categorie getCategorieSansRand(int identifiant){
+        	Categorie categorie = new Categorie();
+        	  categorie.setId(id[identifiant]);
+              categorie.setNom(nom[identifiant]);
+			return categorie;
+        	
+        }
 }
