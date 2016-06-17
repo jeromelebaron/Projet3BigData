@@ -18,24 +18,27 @@ import fr.s2re.bigdata.entity.Fournisseur;
  */
 public class FournisseurBusinessTest {
 
+<<<<<<< HEAD
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
-		/*for (int localI = 0; localI < 50; localI++) {
-            Fournisseur localFournisseur = FournisseurBusiness.getFournisseur();
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        
+        for (int localI = 0; localI < 50; localI++) {
+            Fournisseur localFournisseur = FournisseurBusiness.getFournisseurAleatoire();
             System.out.println(localFournisseur.getId());
-        }*/
+        }
+        System.out.println("-------------------------------------");
+        for (int localI = 0; localI < 20; localI++) {
+            Fournisseur localFournisseur = FournisseurBusiness.getFournisseur(localI);
+            System.out.println(localFournisseur.getId());
+        }
 
-		/*	for (int localI = 0; localI < 50; localI++) {
-            Client client = ClientBusiness.getClient();
-            System.out.println(client.getId());
-    	}*/
-		for (int localI = 0; localI < 50; localI++) {
-			Categorie cat = CategorieBusiness.getCategorie();
-			System.out.println(cat.getId());
-		}
 	}
 
 }
