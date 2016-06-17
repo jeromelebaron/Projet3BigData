@@ -4,7 +4,6 @@
 package fr.s2re.bigdata.business;
 
 import java.text.ParseException;
-import java.util.Date;
 
 import org.bson.Document;
 
@@ -21,7 +20,7 @@ import fr.s2re.bigdata.entity.LigneCommande;
  * @author $LastChangedBy$
  * @version $Revision$ $Date$
  */
-public class AjoutBase {
+public class AjoutBaseLignesCommande {
 
     private final static String HOST = "localhost";
     private final static int PORT = 27017;
