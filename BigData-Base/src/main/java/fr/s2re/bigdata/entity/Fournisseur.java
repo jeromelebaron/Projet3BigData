@@ -70,4 +70,12 @@ public class Fournisseur {
         nom = paramNom;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return "Fournisseur [id=" + id + ", nom=" + nom + "]";
+    }
+
 }

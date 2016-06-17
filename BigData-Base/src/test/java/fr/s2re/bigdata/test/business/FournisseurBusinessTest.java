@@ -20,7 +20,12 @@ public class FournisseurBusinessTest {
     public static void main(String[] args) {
         
         for (int localI = 0; localI < 50; localI++) {
-            Fournisseur localFournisseur = FournisseurBusiness.getFournisseur();
+            Fournisseur localFournisseur = FournisseurBusiness.getFournisseurAleatoire();
+            System.out.println(localFournisseur.getId());
+        }
+        System.out.println("-------------------------------------");
+        for (int localI = 0; localI < 20; localI++) {
+            Fournisseur localFournisseur = FournisseurBusiness.getFournisseur(localI);
             System.out.println(localFournisseur.getId());
         }
 

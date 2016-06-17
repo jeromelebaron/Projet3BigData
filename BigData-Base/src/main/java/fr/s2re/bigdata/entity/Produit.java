@@ -83,4 +83,12 @@ public class Produit {
         fournisseur = paramFournisseur;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return "Produit [id=" + id + ", nom=" + nom + ", fournisseur=" + fournisseur + "]";
+    }
+
 }

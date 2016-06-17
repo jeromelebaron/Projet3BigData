@@ -23,7 +23,7 @@ public class FournisseurBusiness {
             "ACE MOBILIER", "URBAN-NT", "EUROSIGN", "BOSQUET", "METALCOLUX", "FREPAt", "CLEAN",
             "EMMANUEL CAIRO", "ABSOLUTE", "BUYNZEEL" };
 
-    public static Fournisseur getFournisseur() {
+    public static Fournisseur getFournisseurAleatoire() {
         Fournisseur localFournisseur = new Fournisseur();
         Random r = new Random();
         int low = 0;
@@ -31,6 +31,13 @@ public class FournisseurBusiness {
         int result = r.nextInt(high - low) + low;
         localFournisseur.setId(idFournisseur[result]);
         localFournisseur.setNom(nomFournisseur[result]);
+        return localFournisseur;
+    }
+
+    public static Fournisseur getFournisseur(int identifFournisseur) {
+        Fournisseur localFournisseur = new Fournisseur();
+        localFournisseur.setId(idFournisseur[identifFournisseur]);
+        localFournisseur.setNom(nomFournisseur[identifFournisseur]);
         return localFournisseur;
     }
 
