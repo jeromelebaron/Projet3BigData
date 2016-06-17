@@ -1,8 +1,8 @@
 package fr.s2re.bigdata.mongo.idao;
 
-import fr.s2re.bigdata.entity.Connexion;
+import java.util.Map;
 
 public interface IDaoConnexion {
 
-	public Connexion getConnexionByUtilisateur();
+    public Map<String, Integer> getConnexionQteConnexionByRegion();
 }
