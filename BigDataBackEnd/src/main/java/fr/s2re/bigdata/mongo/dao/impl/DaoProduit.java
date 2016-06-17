@@ -1,3 +1,6 @@
+/*
+ * Créé le 17 juin 2016 par Jérome LE BARON
+ */
 package fr.s2re.bigdata.mongo.dao.impl;
 
 import java.util.ArrayList;
@@ -11,24 +14,32 @@ import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-import fr.s2re.bigdata.dao.AbstractDAO;
-import fr.s2re.bigdata.mongo.idao.IDaoFournisseur;
+import fr.s2re.bigdata.mongo.idao.IDaoProduit;
 
-public class DaoFournisseur extends AbstractDAO implements IDaoFournisseur {
+/**
+ * Description de la classe
+ * @author Jérome LE BARON
+ * @author $LastChangedBy$
+ * @version $Revision$ $Date$
+ */
+public class DaoProduit implements IDaoProduit {
 
     private final static String HOST = "localhost";
     private final static int PORT = 27017;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public List<String> getTroisBestFournisseur() {
-        final List<String> meilleuresFournisseurs = new ArrayList<>();
+    public List<String> getDixMeilleuresVentes() {
+        final List<String> meilleuresVentes = new ArrayList<>();
         MongoClient client = new MongoClient(HOST, PORT);
         MongoDatabase dataBase = client.getDatabase("client");
         MongoCollection<Document> collection = dataBase.getCollection("connexion");
 
-        Document group = Document.parse("{$group:{_id:'$produit.fournisseur.nom',qte:{$sum:1}}}");
+        Document group = Document.parse("{$group:{_id:'$produit.idProduit',qte:{$sum:1}}}");
         Document sort = Document.parse("{$sort:{qte:-1}}");
-        Document limit = Document.parse("{$limit:3}");
+        Document limit = Document.parse("{$limit:10}");
 
         List<Document> operations = new ArrayList<>();
         operations.add(group);
@@ -39,12 +50,12 @@ public class DaoFournisseur extends AbstractDAO implements IDaoFournisseur {
         iterable.forEach(new Block<Document>() {
             @Override
             public void apply(Document document) {
-                String nomFournisseur = document.getString("_id");
-                meilleuresFournisseurs.add(nomFournisseur);
+                String refProduit = document.getString("_id");
+                meilleuresVentes.add(refProduit);
             }
         });
         client.close();
-        return meilleuresFournisseurs;
+        return meilleuresVentes;
     }
 
 }

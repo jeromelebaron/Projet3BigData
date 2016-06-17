@@ -1,9 +1,9 @@
 package fr.s2re.bigdata.mongo.idao;
 
-import fr.s2re.bigdata.entity.Fournisseur;
+import java.util.List;
 
 public interface IDaoFournisseur {
 	
-	public Fournisseur getBestFournisseur();
+	public List<String> getTroisBestFournisseur();
 
 }

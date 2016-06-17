@@ -35,8 +35,8 @@ public class AjoutBaseLignesCommande {
         MongoCollection<Document> collection = dataBase.getCollection("lignesCommande");
         System.out.println("connexion réussie");
         int nbLigneCommande = 0;
-        for (Long localI = 1L; localI < 21; localI++) {
-            System.out.println("==========Commande " + localI + "=============");
+        for (Long localI = 1L; localI < 210000; localI++) {
+            //System.out.println("==========Commande " + localI + "=============");
             LigneCommande localLigneCommande = new LigneCommande();
             localLigneCommande.setNumCommande(localI);
             try {
@@ -86,7 +86,7 @@ public class AjoutBaseLignesCommande {
                 ligneComDocument.append("client", clientDocument);
 
                 collection.insertOne(ligneComDocument);
-                System.out.println(localLigneCommande);
+                //System.out.println(localLigneCommande);
             }
         }
         System.out.println(nbLigneCommande);
