@@ -3,7 +3,11 @@
  */
 package fr.s2re.bigdata.test.business;
 
+import fr.s2re.bigdata.business.CategorieBusiness;
+import fr.s2re.bigdata.business.ClientBusiness;
 import fr.s2re.bigdata.business.FournisseurBusiness;
+import fr.s2re.bigdata.entity.Categorie;
+import fr.s2re.bigdata.entity.Client;
 import fr.s2re.bigdata.entity.Fournisseur;
 
 /**
@@ -14,16 +18,24 @@ import fr.s2re.bigdata.entity.Fournisseur;
  */
 public class FournisseurBusinessTest {
 
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        
-        for (int localI = 0; localI < 50; localI++) {
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+		/*for (int localI = 0; localI < 50; localI++) {
             Fournisseur localFournisseur = FournisseurBusiness.getFournisseur();
             System.out.println(localFournisseur.getId());
-        }
+        }*/
 
-    }
+		/*	for (int localI = 0; localI < 50; localI++) {
+            Client client = ClientBusiness.getClient();
+            System.out.println(client.getId());
+    	}*/
+		for (int localI = 0; localI < 50; localI++) {
+			Categorie cat = CategorieBusiness.getCategorie();
+			System.out.println(cat.getId());
+		}
+	}
 
 }

@@ -17,7 +17,7 @@ public class BoucleIdProduit {
      * @param args
      */
     public static void main(String[] args) {
-
+    
         for (int localI = 0; localI < 100; localI++) {
             int idProduit = (int) (Math.random() * 21);
             Random r = new Random();
