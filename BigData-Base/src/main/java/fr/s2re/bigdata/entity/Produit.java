@@ -17,9 +17,10 @@ public class Produit {
 
     private Fournisseur fournisseur;
 
+    private double prix;
+
     public Produit() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -28,11 +29,12 @@ public class Produit {
      * @param paramNom
      * @param paramFournisseur
      */
-    public Produit(int paramId, String paramNom, Fournisseur paramFournisseur) {
+    public Produit(int paramId, String paramNom, Fournisseur paramFournisseur, double paramPrix) {
         super();
         id = paramId;
         nom = paramNom;
         fournisseur = paramFournisseur;
+        prix = paramPrix;
     }
 
     /**
@@ -89,6 +91,22 @@ public class Produit {
     @Override
     public String toString() {
         return "Produit [id=" + id + ", nom=" + nom + ", fournisseur=" + fournisseur + "]";
+    }
+
+    /**
+     * Accesseur en lecture du champ <code>prix</code>.
+     * @return le champ <code>prix</code>.
+     */
+    public double getPrix() {
+        return prix;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>prix</code>.
+     * @param paramPrix la valeur à écrire dans <code>prix</code>.
+     */
+    public void setPrix(double paramPrix) {
+        prix = paramPrix;
     }
 
 }

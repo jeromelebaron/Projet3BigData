@@ -5,6 +5,7 @@ package fr.s2re.bigdata.business;
 
 import java.util.Random;
 
+import fr.s2re.bigdata.business.util.UtilAleatoire;
 import fr.s2re.bigdata.entity.Produit;
 
 /**
@@ -25,7 +26,8 @@ public class ProduitBusiness {
     private static void remplirProduit() {
         for (int localI = 0; localI < lesProduits.length; localI++) {
             Produit produit = new Produit(localI, referenceProduits[localI],
-                    FournisseurBusiness.getFournisseur(localI));
+                    FournisseurBusiness.getFournisseur(localI), UtilAleatoire.getDoubleAlea(20,
+                            3000));
             lesProduits[localI] = produit;
         }
     }

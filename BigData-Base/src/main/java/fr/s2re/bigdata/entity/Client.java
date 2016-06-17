@@ -1,36 +1,33 @@
 package fr.s2re.bigdata.entity;
 
-import java.util.Random;
 
 public class Client {
-	 
-	private  int id;
 
-	
-	public int getId() {
-		return id;
-	}
+    private int id;
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Client(int id) {
+        super();
+        this.id = id;
+    }
 
+    public Client() {
+        super();
+    }
 
-	public Client(int id) {
-		super();
-		this.id = id;
-	}
-
-
-	public Client() {
-		super();
-	}
-
-
-
-
-	  
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return "Client [id=" + id + "]";
+    }
 
 }
