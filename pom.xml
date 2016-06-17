@@ -13,6 +13,7 @@
 	<modules>
 		<module>BigDataParent</module>
 		<module>BigData-Test</module>
+		<module>BigData-Base</module>
 	</modules>
 
 </project>
