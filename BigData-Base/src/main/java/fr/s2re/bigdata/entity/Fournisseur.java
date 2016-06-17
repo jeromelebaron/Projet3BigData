@@ -4,35 +4,33 @@
 package fr.s2re.bigdata.entity;
 
 /**
- * Représente un produit qui sera ajouté dans la base Mongo
+ * Le fournisseur d'un {@link Produit}.
  * @author Jérome LE BARON
  * @author $LastChangedBy$
  * @version $Revision$ $Date$
  */
-public class Produit {
+public class Fournisseur {
 
     private int id;
 
     private String nom;
 
-    private Fournisseur fournisseur;
-
-    public Produit() {
+    /**
+     * Constructeur.
+     */
+    public Fournisseur() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
-     * Constructeur.
+     * Constructeur plein.
      * @param paramId
      * @param paramNom
-     * @param paramFournisseur
      */
-    public Produit(int paramId, String paramNom, Fournisseur paramFournisseur) {
+    public Fournisseur(int paramId, String paramNom) {
         super();
         id = paramId;
         nom = paramNom;
-        fournisseur = paramFournisseur;
     }
 
     /**
@@ -65,22 +63,6 @@ public class Produit {
      */
     public void setNom(String paramNom) {
         nom = paramNom;
-    }
-
-    /**
-     * Accesseur en lecture du champ <code>fournisseur</code>.
-     * @return le champ <code>fournisseur</code>.
-     */
-    public Fournisseur getFournisseur() {
-        return fournisseur;
-    }
-
-    /**
-     * Accesseur en écriture du champ <code>fournisseur</code>.
-     * @param paramFournisseur la valeur à écrire dans <code>fournisseur</code>.
-     */
-    public void setFournisseur(Fournisseur paramFournisseur) {
-        fournisseur = paramFournisseur;
     }
 
 }
