@@ -12,10 +12,10 @@ public class ConnexionBusiness {
             "Corse", "Ile-de-France", "Nord-Pas-de-Calais-Picardie", "Normandie",
             "Pays de la Loire", "Provence-Alpes-Côte d'Azur" };
 
-    public static Connexion getUneConnexion(int idClient) {
+    public static Connexion getUneConnexion(int idClient, int idRegion) {
         Connexion localConnexion = new Connexion();
         localConnexion.setIdClient(idClient);
-        int numRegion = UtilAleatoire.getIntAlea(1, 13);
+        int numRegion = idRegion;
         Region region = new Region(numRegion, regions[numRegion]);
         localConnexion.setRegion(region);
         localConnexion.setDuree(UtilAleatoire.getDoubleAlea(0.5, 30));

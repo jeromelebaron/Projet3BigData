@@ -42,7 +42,6 @@ public class RequeteTest {
 
         AggregateIterable<Document> iterable = collection.aggregate(operations);
         iterable.forEach(new Block<Document>() {
-
             @Override
             public void apply(Document document) {
                 String nomRegion = document.getString("_id");

@@ -19,7 +19,7 @@ public class ConnexionBusinessTest {
      */
     public static void main(String[] args) {
         for (int localI = 0; localI < 20; localI++) {
-            Connexion localConnexion = ConnexionBusiness.getUneConnexion(localI);
+            Connexion localConnexion = ConnexionBusiness.getUneConnexion(localI, localI);
             System.out.println(localConnexion);
         }
         
