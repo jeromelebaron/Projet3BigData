@@ -11,8 +11,13 @@ package fr.s2re.bigdata.entity;
  */
 public class Fournisseur {
 
+    /**
+     * Identifiant unique.
+     */
     private int id;
-
+    /**
+     * Nom de la référence.
+     */
     private String nom;
 
     /**
