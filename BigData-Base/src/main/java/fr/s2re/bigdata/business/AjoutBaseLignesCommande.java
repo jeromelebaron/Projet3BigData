@@ -3,14 +3,17 @@
  */
 package fr.s2re.bigdata.business;
 
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 
+import org.apache.log4j.Logger;
 import org.bson.Document;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
+import fr.s2re.bigdata.business.elasticsearch.ElasticPost;
 import fr.s2re.bigdata.business.util.UtilAleatoire;
 import fr.s2re.bigdata.entity.LigneCommande;
 
@@ -22,27 +25,36 @@ import fr.s2re.bigdata.entity.LigneCommande;
  */
 public class AjoutBaseLignesCommande {
 
-    private final static String HOST = "localhost";
-    private final static int PORT = 27017;
+    /**
+     * POur faire du log.
+     */
+    private static final Logger LOGGER = Logger.getLogger(AjoutBaseLignesCommande.class);
+    /**
+     * URL du mongoDB.
+     */
+    private static final String HOST = "localhost";
+    /**
+     * Port du MongoDB.
+     */
+    private static final int PORT = 27017;
 
     /**
      * @param args
      */
     public static void main(String[] args) {
-
+        ElasticPost localElasticPost = new ElasticPost();
         MongoClient client = new MongoClient(HOST, PORT);
         MongoDatabase dataBase = client.getDatabase("client");
         MongoCollection<Document> collection = dataBase.getCollection("lignesCommande");
-        System.out.println("connexion réussie");
+        LOGGER.debug("connexion réussie");
         int nbLigneCommande = 0;
-        for (Long localI = 1L; localI < 210000; localI++) {
-            //System.out.println("==========Commande " + localI + "=============");
+        for (Long localI = 1L; localI < 21; localI++) {
             LigneCommande localLigneCommande = new LigneCommande();
             localLigneCommande.setNumCommande(localI);
             try {
                 localLigneCommande.setDateCommande(UtilAleatoire.genereDate(2010, 2015));
             } catch (ParseException e) {
-                e.printStackTrace();
+                LOGGER.error(e);
             }
             localLigneCommande.setClient(ClientBusiness.getClient());
             int nbLigne = UtilAleatoire.getIntAlea(1, 6);
@@ -86,12 +98,18 @@ public class AjoutBaseLignesCommande {
                 ligneComDocument.append("client", clientDocument);
 
                 collection.insertOne(ligneComDocument);
-                //System.out.println(localLigneCommande);
+
+                LOGGER.debug(ligneComDocument.toJson());
+                try {
+                    localElasticPost.postToElastic(ligneComDocument, "commande", "ligneCommande",
+                            String.valueOf(nbLigneCommande));
+                } catch (UnsupportedEncodingException e) {
+                    LOGGER.error(e);
+                }
             }
         }
-        System.out.println(nbLigneCommande);
+        LOGGER.info(nbLigneCommande);
         client.close();
-
     }
 
 }
