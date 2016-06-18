@@ -3,14 +3,20 @@
  */
 package fr.s2re.bigdata.backend.wrapper;
 
+import java.io.Serializable;
+
 /**
  * Pour ramener les éléments concernant la connexion.
  * @author Jérome LE BARON
  * @author $LastChangedBy$
  * @version $Revision$ $Date$
  */
-public class ConnexionRegionWrapper {
+public class ConnexionRegionWrapper implements Serializable {
 
+    /**
+     * Sérialisation.
+     */
+    private static final long serialVersionUID = 1L;
     /**
      * Le nom de la région
      */
@@ -68,6 +74,15 @@ public class ConnexionRegionWrapper {
      */
     public void setQteConnexion(int paramQteConnexion) {
         qteConnexion = paramQteConnexion;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return "ConnexionRegionWrapper [nomRegion=" + nomRegion + ", qteConnexion=" + qteConnexion
+                + "]";
     }
 
 }

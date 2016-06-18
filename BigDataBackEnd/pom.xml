@@ -1,16 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <artifactId>BigDataBackENd</artifactId>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>BigDataBackENd</artifactId>
 
-  <parent>
+	<parent>
 		<groupId>fr.s2re</groupId>
 		<artifactId>BigData-Parent</artifactId>
 		<version>0.1</version>
 		<relativePath>../BigDataParent/pom.xml</relativePath>
 	</parent>
-	
+
 	<dependencies>
-	<dependency>
+		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
 		</dependency>
@@ -26,9 +27,9 @@
 			<artifactId>spring-context</artifactId>
 		</dependency>
 		<dependency>
-		<groupId>fr.s2re</groupId>
-		<artifactId>BigData-Base</artifactId>
-		<version>0.1</version>
+			<groupId>fr.s2re</groupId>
+			<artifactId>BigData-Base</artifactId>
+			<version>0.1</version>
 		</dependency>
 	</dependencies>
 </project>

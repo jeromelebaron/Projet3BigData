@@ -5,6 +5,8 @@ package fr.s2re.bigdata.backend.mongo.idao;
 
 import java.util.List;
 
+import fr.s2re.bigdata.backend.wrapper.ProduitWrapper;
+
 /**
  * Pour récupérer des produits dans la base Mongo.
  * @author Jérome LE BARON
@@ -13,6 +15,6 @@ import java.util.List;
  */
 public interface IDaoProduit {
 
-    List<String> getDixMeilleuresVentes();
+    List<ProduitWrapper> getMeilleuresVentes(int nbVentes);
 
 }

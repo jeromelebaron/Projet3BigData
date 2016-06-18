@@ -15,6 +15,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 import fr.s2re.bigdata.backend.mongo.idao.IDaoProduit;
+import fr.s2re.bigdata.backend.wrapper.ProduitWrapper;
 
 /**
  * Description de la classe
@@ -24,22 +25,20 @@ import fr.s2re.bigdata.backend.mongo.idao.IDaoProduit;
  */
 public class DaoProduit implements IDaoProduit {
 
-    private final static String HOST = "localhost";
-    private final static int PORT = 27017;
-
     /**
      * {@inheritDoc}
      */
     @Override
-    public List<String> getDixMeilleuresVentes() {
-        final List<String> meilleuresVentes = new ArrayList<>();
-        MongoClient client = new MongoClient(HOST, PORT);
+    public List<ProduitWrapper> getMeilleuresVentes(int nbMaxVentes) {
+        final List<ProduitWrapper> meilleuresVentes = new ArrayList<>();
+        MongoConnexion localMongoConnexion = new MongoConnexion();
+        MongoClient client = localMongoConnexion.getMongoClient();
         MongoDatabase dataBase = client.getDatabase("client");
         MongoCollection<Document> collection = dataBase.getCollection("connexion");
 
         Document group = Document.parse("{$group:{_id:'$produit.idProduit',qte:{$sum:1}}}");
         Document sort = Document.parse("{$sort:{qte:-1}}");
-        Document limit = Document.parse("{$limit:10}");
+        Document limit = Document.parse("{$limit:" + nbMaxVentes + "}");
 
         List<Document> operations = new ArrayList<>();
         operations.add(group);
@@ -50,8 +49,9 @@ public class DaoProduit implements IDaoProduit {
         iterable.forEach(new Block<Document>() {
             @Override
             public void apply(Document document) {
-                String refProduit = document.getString("_id");
-                meilleuresVentes.add(refProduit);
+                ProduitWrapper produitWrapper = new ProduitWrapper();
+                produitWrapper.setReference(document.getString("_id"));
+                meilleuresVentes.add(produitWrapper);
             }
         });
         client.close();

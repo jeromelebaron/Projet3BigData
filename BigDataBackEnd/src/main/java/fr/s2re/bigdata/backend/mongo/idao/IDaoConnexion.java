@@ -1,14 +1,15 @@
 package fr.s2re.bigdata.backend.mongo.idao;
 
-import java.util.Map;
+import java.util.List;
 
+import fr.s2re.bigdata.backend.wrapper.ConnexionRegionWrapper;
 import fr.s2re.bigdata.entity.Region;
 
 public interface IDaoConnexion {
 
     /**
      * Pour récupérer les nombre de connexion par {@link Region}.
-     * @return une map avec en clé la région en valeur la quantité de connexion.
+     * @return une liste de {@link ConnexionRegionWrapper}.
      */
-    public Map<String, Integer> getConnexionQteConnexionByRegion();
+    public List<ConnexionRegionWrapper> getConnexionQteConnexionByRegion();
 }

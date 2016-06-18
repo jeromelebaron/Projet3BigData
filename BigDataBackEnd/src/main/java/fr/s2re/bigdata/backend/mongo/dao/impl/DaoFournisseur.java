@@ -13,6 +13,7 @@ import com.mongodb.client.MongoDatabase;
 
 import fr.s2re.bigdata.backend.dao.AbstractDAO;
 import fr.s2re.bigdata.backend.mongo.idao.IDaoFournisseur;
+import fr.s2re.bigdata.backend.wrapper.FournisseurWrapper;
 
 public class DaoFournisseur extends AbstractDAO implements IDaoFournisseur {
 
@@ -20,8 +21,8 @@ public class DaoFournisseur extends AbstractDAO implements IDaoFournisseur {
      * {@inheritDoc}
      */
     @Override
-    public List<String> getTroisBestFournisseur() {
-        final List<String> meilleuresFournisseurs = new ArrayList<>();
+    public List<FournisseurWrapper> getTroisBestFournisseur(int nbMax) {
+        final List<FournisseurWrapper> meilleuresFournisseurs = new ArrayList<>();
         final MongoConnexion localMongoConnexion = new MongoConnexion();
         final MongoClient client = localMongoConnexion.getMongoClient();
         final MongoDatabase dataBase = client.getDatabase("client");
@@ -30,7 +31,7 @@ public class DaoFournisseur extends AbstractDAO implements IDaoFournisseur {
         final Document group = Document
                 .parse("{$group:{_id:'$produit.fournisseur.nom',qte:{$sum:1}}}");
         final Document sort = Document.parse("{$sort:{qte:-1}}");
-        final Document limit = Document.parse("{$limit:3}");
+        final Document limit = Document.parse("{$limit:" + nbMax + "}");
 
         final List<Document> operations = new ArrayList<>();
         operations.add(group);
@@ -41,8 +42,9 @@ public class DaoFournisseur extends AbstractDAO implements IDaoFournisseur {
         iterable.forEach(new Block<Document>() {
             @Override
             public void apply(Document document) {
-                String nomFournisseur = document.getString("_id");
-                meilleuresFournisseurs.add(nomFournisseur);
+                final FournisseurWrapper fournisseurWrapper = new FournisseurWrapper();
+                fournisseurWrapper.setNom(document.getString("_id"));
+                meilleuresFournisseurs.add(fournisseurWrapper);
             }
         });
         client.close();
