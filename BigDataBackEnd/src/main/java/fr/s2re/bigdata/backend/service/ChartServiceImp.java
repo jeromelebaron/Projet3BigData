@@ -1,4 +1,4 @@
-package fr.s2re.bigdata.service;
+package fr.s2re.bigdata.backend.service;
 
 import fr.s2re.bigdata.entity.Connexion;
 import fr.s2re.bigdata.entity.Fournisseur;

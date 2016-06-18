@@ -1,8 +1,9 @@
-package fr.s2re.bigdata.facade;
+package fr.s2re.bigdata.backend.facade;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import fr.s2re.bigdata.service.ChartService;
+
+import fr.s2re.bigdata.backend.service.ChartService;
 
 
 

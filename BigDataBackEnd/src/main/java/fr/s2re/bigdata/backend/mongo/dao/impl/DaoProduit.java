@@ -1,7 +1,7 @@
 /*
  * Créé le 17 juin 2016 par Jérome LE BARON
  */
-package fr.s2re.bigdata.mongo.dao.impl;
+package fr.s2re.bigdata.backend.mongo.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-import fr.s2re.bigdata.mongo.idao.IDaoProduit;
+import fr.s2re.bigdata.backend.mongo.idao.IDaoProduit;
 
 /**
  * Description de la classe

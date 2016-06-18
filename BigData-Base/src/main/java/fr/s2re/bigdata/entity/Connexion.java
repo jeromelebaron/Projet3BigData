@@ -1,8 +1,11 @@
 package fr.s2re.bigdata.entity;
 
 public class Connexion {
+
     private int idClient;
+
     private Region region;
+
     private double duree;
 
     public Connexion() {

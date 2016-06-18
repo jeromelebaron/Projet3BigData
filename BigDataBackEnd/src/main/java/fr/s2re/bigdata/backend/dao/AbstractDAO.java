@@ -1,4 +1,4 @@
-package fr.s2re.bigdata.dao;
+package fr.s2re.bigdata.backend.dao;
 
 import org.bson.Document;
 

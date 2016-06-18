@@ -1,4 +1,4 @@
-package fr.s2re.bigdata.mongo.idao;
+package fr.s2re.bigdata.backend.mongo.idao;
 
 import java.util.List;
 

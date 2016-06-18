@@ -1,7 +1,7 @@
 /*
  * Créé le 17 juin 2016 par Jérome LE BARON
  */
-package fr.s2re.bigdata.mongo.idao;
+package fr.s2re.bigdata.backend.mongo.idao;
 
 import java.util.List;
 

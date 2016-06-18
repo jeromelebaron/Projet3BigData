@@ -10,6 +10,6 @@
 	<context:annotation-config />
 
 	<!-- pour demander à Spring de rechercher @component -->
-	<context:component-scan base-package="fr.s2re.bigdata" />
+	<context:component-scan base-package="fr.s2re.bigdata.backend" />
 	
 </beans>
