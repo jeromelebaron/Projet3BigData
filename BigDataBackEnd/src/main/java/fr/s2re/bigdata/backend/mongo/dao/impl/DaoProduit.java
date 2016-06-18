@@ -34,16 +34,16 @@ public class DaoProduit implements IDaoProduit {
         MongoConnexion localMongoConnexion = new MongoConnexion();
         MongoClient client = localMongoConnexion.getMongoClient();
         MongoDatabase dataBase = client.getDatabase("client");
-        MongoCollection<Document> collection = dataBase.getCollection("connexion");
+        MongoCollection<Document> collection = dataBase.getCollection("lignesCommande");
 
-        Document group = Document.parse("{$group:{_id:'$produit.idProduit',qte:{$sum:1}}}");
+        Document group = Document.parse("{$group:{_id:'$produit.nomProduit',qte:{$sum:1}}}");
         Document sort = Document.parse("{$sort:{qte:-1}}");
         Document limit = Document.parse("{$limit:" + nbMaxVentes + "}");
 
         List<Document> operations = new ArrayList<>();
         operations.add(group);
         operations.add(sort);
-        operations.add(limit);
+        operations.add(limit);  
 
         AggregateIterable<Document> iterable = collection.aggregate(operations);
         iterable.forEach(new Block<Document>() {

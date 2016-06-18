@@ -21,15 +21,15 @@ public class DaoFournisseur extends AbstractDAO implements IDaoFournisseur {
      * {@inheritDoc}
      */
     @Override
-    public List<FournisseurWrapper> getTroisBestFournisseur(int nbMax) {
+    public List<FournisseurWrapper> getBestFournisseur(int nbMax) {
         final List<FournisseurWrapper> meilleuresFournisseurs = new ArrayList<>();
         final MongoConnexion localMongoConnexion = new MongoConnexion();
         final MongoClient client = localMongoConnexion.getMongoClient();
         final MongoDatabase dataBase = client.getDatabase("client");
-        final MongoCollection<Document> collection = dataBase.getCollection("connexion");
+        final MongoCollection<Document> collection = dataBase.getCollection("lignesCommande");
 
         final Document group = Document
-                .parse("{$group:{_id:'$produit.fournisseur.nom',qte:{$sum:1}}}");
+                .parse("{$group:{_id:'$produit.fournisseur.nomFournisseur',qte:{$sum:1}}}");
         final Document sort = Document.parse("{$sort:{qte:-1}}");
         final Document limit = Document.parse("{$limit:" + nbMax + "}");
 

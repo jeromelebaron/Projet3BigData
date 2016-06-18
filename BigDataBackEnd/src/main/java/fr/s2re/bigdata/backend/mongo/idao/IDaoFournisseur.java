@@ -6,6 +6,6 @@ import fr.s2re.bigdata.backend.wrapper.FournisseurWrapper;
 
 public interface IDaoFournisseur {
 	
-	public List<FournisseurWrapper> getTroisBestFournisseur(int nbMax);
+	public List<FournisseurWrapper> getBestFournisseur(int nbMax);
 
 }
