@@ -1,7 +1,7 @@
 /*
  * Créé le 17 juin 2016 par Jérome LE BARON
  */
-package fr.s2re.bigdata.business;
+package fr.s2re.bigdata.business.ajout;
 
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
@@ -13,6 +13,9 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
+import fr.s2re.bigdata.business.CategorieBusiness;
+import fr.s2re.bigdata.business.ClientBusiness;
+import fr.s2re.bigdata.business.ProduitBusiness;
 import fr.s2re.bigdata.business.elasticsearch.ElasticPost;
 import fr.s2re.bigdata.business.util.UtilAleatoire;
 import fr.s2re.bigdata.entity.LigneCommande;
@@ -54,9 +57,10 @@ public class AjoutBaseLignesCommande {
         MongoCollection<Document> collection = dataBase.getCollection("lignesCommande");
         LOGGER.debug("connexion réussie");
         int nbLigneCommande = 0;
-        for (Long localI = 1L; localI < 21; localI++) {
+        for (Long iterateurCommande = 1L; iterateurCommande < 210; iterateurCommande++) {
             LigneCommande localLigneCommande = new LigneCommande();
-            localLigneCommande.setNumCommande(localI);
+            localLigneCommande.setNumCommande(iterateurCommande);
+            LOGGER.debug("==========Commande " + iterateurCommande + "=============");
             try {
                 localLigneCommande.setDateCommande(UtilAleatoire.genereDate(2010, 2015));
             } catch (ParseException e) {
@@ -64,7 +68,7 @@ public class AjoutBaseLignesCommande {
             }
             localLigneCommande.setClient(ClientBusiness.getClient());
             int nbLigne = UtilAleatoire.getIntAlea(1, 6);
-            for (int localI2 = 0; localI2 < nbLigne; localI2++) {
+            for (int iterateurQuantite = 0; iterateurQuantite < nbLigne; iterateurQuantite++) {
                 nbLigneCommande++;
                 int numProduitCat = UtilAleatoire.getIntAlea(1, 20);
                 localLigneCommande.setProduit(ProduitBusiness.getProduit(numProduitCat));
@@ -75,7 +79,8 @@ public class AjoutBaseLignesCommande {
                 Document ligneComDocument = new Document();
                 ligneComDocument.append("numCommande", localLigneCommande.getNumCommande());
                 ligneComDocument.append("quantite", qte);
-                ligneComDocument.append("dateCommande", localLigneCommande.getDateCommande());
+                ligneComDocument.append("dateCommande", localLigneCommande.getDateCommande()
+                        .getTime());
 
                 Document produitDocument = new Document();
                 produitDocument.append("idProduit", localLigneCommande.getProduit().getId());
@@ -104,7 +109,7 @@ public class AjoutBaseLignesCommande {
                 ligneComDocument.append("client", clientDocument);
 
                 collection.insertOne(ligneComDocument);
-
+                LOGGER.info(localLigneCommande);
                 LOGGER.debug(ligneComDocument.toJson());
                 try {
                     localElasticPost.postToElastic(ligneComDocument, "commande", "ligneCommande",
