@@ -6,7 +6,7 @@ package fr.s2re.bigdata.backend.mongo.dao.impl;
 import com.mongodb.MongoClient;
 
 /**
- * Description de la classe
+ * Pour les différents utilitaires liés à MongoDb
  * @author Jérome LE BARON
  * @author $LastChangedBy$
  * @version $Revision$ $Date$

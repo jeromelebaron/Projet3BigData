@@ -39,6 +39,12 @@ public class AjoutBaseLignesCommande {
     private static final int PORT = 27017;
 
     /**
+     * Constructeur.
+     */
+    private AjoutBaseLignesCommande() {
+    }
+
+    /**
      * @param args
      */
     public static void main(String[] args) {

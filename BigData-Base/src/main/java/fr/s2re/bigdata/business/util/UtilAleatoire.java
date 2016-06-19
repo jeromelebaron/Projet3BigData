@@ -16,18 +16,22 @@ import java.util.Random;
  */
 public class UtilAleatoire {
 
+    /**
+     * Constructeur.
+     */
+    private UtilAleatoire() {
+    }
+
     public static int getIntAlea(int debut, int fin) {
         Random r2 = new Random();
         int low2 = debut;
         int high2 = fin;
-        int result2 = r2.nextInt(high2 - low2) + low2;
-        return result2;
+        return r2.nextInt(high2 - low2) + low2;
     }
 
     public static double getDoubleAlea(double debut, double fin) {
         Random r2 = new Random();
-        double result2 = debut + (fin - debut) * r2.nextDouble();
-        return result2;
+        return debut + (fin - debut) * r2.nextDouble();
     }
 
     public static Date genereDate(int anneDebut, int anneeFin) throws ParseException {
@@ -36,8 +40,7 @@ public class UtilAleatoire {
         int annee = UtilAleatoire.getIntAlea(anneDebut, anneeFin);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String dateGeneree = jour + "/" + mois + "/" + annee;
-        Date dateOk = sdf.parse(dateGeneree);
-        return dateOk;
+        return sdf.parse(dateGeneree);
     }
 
 }

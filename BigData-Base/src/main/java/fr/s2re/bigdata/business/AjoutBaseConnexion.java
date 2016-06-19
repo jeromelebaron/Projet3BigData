@@ -3,6 +3,7 @@
  */
 package fr.s2re.bigdata.business;
 
+import org.apache.log4j.Logger;
 import org.bson.Document;
 
 import com.mongodb.MongoClient;
@@ -13,15 +14,25 @@ import fr.s2re.bigdata.business.util.UtilAleatoire;
 import fr.s2re.bigdata.entity.Connexion;
 
 /**
- * Description de la classe
+ * Pour remplir la base connexion.
  * @author Jérome LE BARON
  * @author $LastChangedBy$
  * @version $Revision$ $Date$
  */
 public class AjoutBaseConnexion {
 
-    private final static String HOST = "localhost";
-    private final static int PORT = 27017;
+    private static final Logger LOGGER = Logger.getLogger(AjoutBaseConnexion.class);
+    /**
+     * URL de la base mongo.
+     */
+    private static final String HOST = "localhost";
+    /**
+     * Port de la base mongo.
+     */
+    private static final int PORT = 27017;
+
+    private AjoutBaseConnexion() {
+    }
 
     /**
      * @param args
@@ -34,7 +45,7 @@ public class AjoutBaseConnexion {
             int idRegion = 1;
             if (localI > 10000) {
                 idRegion = 2;
-            }   
+            }
             if (localI > 40000) {
                 idRegion = 3;
             }
@@ -79,7 +90,7 @@ public class AjoutBaseConnexion {
             documentConnexion.append("region", documentRegion);
             collection.insertOne(documentConnexion);
         }
-        System.out.println("Fini");
+        LOGGER.info("Fini");
         client.close();
     }
 

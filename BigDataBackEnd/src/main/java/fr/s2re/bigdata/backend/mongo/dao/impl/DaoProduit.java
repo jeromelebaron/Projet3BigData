@@ -43,7 +43,7 @@ public class DaoProduit implements IDaoProduit {
         List<Document> operations = new ArrayList<>();
         operations.add(group);
         operations.add(sort);
-        operations.add(limit);  
+        operations.add(limit);
 
         AggregateIterable<Document> iterable = collection.aggregate(operations);
         iterable.forEach(new Block<Document>() {

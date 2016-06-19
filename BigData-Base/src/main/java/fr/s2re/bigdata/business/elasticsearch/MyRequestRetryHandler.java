@@ -14,6 +14,8 @@ import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.protocol.HttpContext;
 
 public class MyRequestRetryHandler implements HttpRequestRetryHandler {
+    
+    @Override
     public boolean retryRequest(IOException exception, int executionCount, HttpContext context) {
         if (executionCount >= 5) {
             // Do not retry if over max retry count

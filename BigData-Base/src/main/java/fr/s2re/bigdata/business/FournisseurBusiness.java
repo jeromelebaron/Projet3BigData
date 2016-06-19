@@ -23,6 +23,9 @@ public class FournisseurBusiness {
             "ACE MOBILIER", "URBAN-NT", "EUROSIGN", "BOSQUET", "METALCOLUX", "FREPAt", "CLEAN",
             "EMMANUEL CAIRO", "ABSOLUTE", "BUYNZEEL" };
 
+    private FournisseurBusiness() {
+    }
+
     public static Fournisseur getFournisseurAleatoire() {
         Fournisseur localFournisseur = new Fournisseur();
         Random r = new Random();

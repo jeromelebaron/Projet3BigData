@@ -1,16 +1,11 @@
 package fr.s2re.bigdata.entity;
 
-
 public class Client {
 
     private int id;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Client() {
+        super();
     }
 
     public Client(int id) {
@@ -18,8 +13,12 @@ public class Client {
         this.id = id;
     }
 
-    public Client() {
-        super();
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**

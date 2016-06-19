@@ -5,6 +5,24 @@ public class Categorie {
     private int id;
     private String nom;
 
+    /**
+     * Constructeur.
+     */
+    public Categorie() {
+        // EMPTY
+    }
+
+    /**
+     * Constructeur plein.
+     * @param id
+     * @param nom
+     */
+    public Categorie(int id, String nom) {
+        super();
+        this.id = id;
+        this.nom = nom;
+    }
+
     public int getId() {
         return id;
     }
@@ -19,16 +37,6 @@ public class Categorie {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public Categorie(int id, String nom) {
-        super();
-        this.id = id;
-        this.nom = nom;
-    }
-
-    public Categorie() {
-        super();
     }
 
     /**

@@ -23,6 +23,12 @@ public class ProduitBusiness {
             "M1524", "M12548", "H25698", "L254789", "C06456", "L254789", "H265987", "C05487",
             "L25478" };
 
+    /**
+     * Constructeur.
+     */
+    private ProduitBusiness() {
+    }
+
     private static void remplirProduit() {
         for (int localI = 0; localI < lesProduits.length; localI++) {
             Produit produit = new Produit(localI, referenceProduits[localI],
