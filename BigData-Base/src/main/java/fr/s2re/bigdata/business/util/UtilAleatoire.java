@@ -43,4 +43,8 @@ public class UtilAleatoire {
         return sdf.parse(dateGeneree);
     }
 
+    public static String genereTrimestre() {
+        return getIntAlea(1, 4) + "-" + getIntAlea(2010, 2015);
+    }
+
 }

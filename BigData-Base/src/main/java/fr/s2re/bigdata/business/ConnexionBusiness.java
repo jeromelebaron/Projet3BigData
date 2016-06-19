@@ -6,11 +6,11 @@ import fr.s2re.bigdata.entity.Region;
 
 public class ConnexionBusiness {
 
-    private static final String[] REGIONS = { "Vide", "Languedoc-Roussillon-Midi-Pyrénées",
+    private static final String[] REGIONS = { "Vide", "Languedoc-Roussillon-Midi-Pyrenees",
             "Alsace-Champagne-Ardenne-Lorraine", "Aquitaine-Poitou-Charentes-Limousin",
-            "Auvergne-Rhône-Alpes", "Bourgogne-Franche-Comté", "Bretagne", "Centre-Val-de-Loire",
+            "Auvergne-Rhone-Alpes", "Bourgogne-Franche-Comte", "Bretagne", "Centre-Val-de-Loire",
             "Corse", "Ile-de-France", "Nord-Pas-de-Calais-Picardie", "Normandie",
-            "Pays de la Loire", "Provence-Alpes-Côte d'Azur" };
+            "Pays de la Loire", "Provence-Alpes-Cote d'Azur" };
 
     /**
      * Constructeur.

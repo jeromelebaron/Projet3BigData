@@ -70,18 +70,57 @@ public class AjoutBaseLignesCommande {
             int nbLigne = UtilAleatoire.getIntAlea(1, 6);
             for (int iterateurQuantite = 0; iterateurQuantite < nbLigne; iterateurQuantite++) {
                 nbLigneCommande++;
-                int numProduitCat = UtilAleatoire.getIntAlea(1, 20);
+                int numProduitCat = 0;
+                int numCat = 1;
+                if (iterateurCommande > 10) {
+                    numProduitCat = 2;
+                    numCat = 1;
+                }
+                if (iterateurCommande > 33) {
+                    numProduitCat = 3;
+                    numCat = 2;
+                }
+                if (iterateurCommande > 43) {
+                    numProduitCat = 4;
+                    numCat = 3;
+                }
+                if (iterateurCommande > 51) {
+                    numProduitCat = 5;
+                    numCat = 4;
+                }
+                if (iterateurCommande > 63) {
+                    numProduitCat = 6;
+                    numCat = 5;
+                }
+                if (iterateurCommande > 88) {
+                    numProduitCat = 7;
+                    numCat = 6;
+                }
+                if (iterateurCommande > 118) {
+                    numProduitCat = 8;
+                    numCat = 7;
+                }
+                if (iterateurCommande > 140) {
+                    numProduitCat = 9;
+                    numCat = 8;
+                }
+                if (iterateurCommande > 172) {
+                    numProduitCat = 10;
+                    numCat = 9;
+                }
                 localLigneCommande.setProduit(ProduitBusiness.getProduit(numProduitCat));
-                localLigneCommande.setCategorie(CategorieBusiness
-                        .getCategorieSansRand(numProduitCat % 2));
+
+                localLigneCommande.setCategorie(CategorieBusiness.getCategorieSansRand(numCat));
                 int qte = UtilAleatoire.getIntAlea(1, 5);
                 localLigneCommande.setQuantite(qte);
+                localLigneCommande.setTrimestre(String.format("%02d",
+                        UtilAleatoire.getIntAlea(1, 13)));
                 Document ligneComDocument = new Document();
                 ligneComDocument.append("numCommande", localLigneCommande.getNumCommande());
                 ligneComDocument.append("quantite", qte);
                 ligneComDocument.append("dateCommande", localLigneCommande.getDateCommande()
                         .getTime());
-
+                ligneComDocument.append("trimestre", localLigneCommande.getTrimestre());
                 Document produitDocument = new Document();
                 produitDocument.append("idProduit", localLigneCommande.getProduit().getId());
                 produitDocument.append("nomProduit", localLigneCommande.getProduit().getNom());

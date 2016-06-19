@@ -8,6 +8,8 @@ public class Connexion {
 
     private double duree;
 
+    private String jourSemaine;
+
     public Connexion() {
         super();
     }
@@ -68,11 +70,28 @@ public class Connexion {
     }
 
     /**
+     * Accesseur en lecture du champ <code>jourSemaine</code>.
+     * @return le champ <code>jourSemaine</code>.
+     */
+    public String getJourSemaine() {
+        return jourSemaine;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>jourSemaine</code>.
+     * @param paramJourSemaine la valeur à écrire dans <code>jourSemaine</code>.
+     */
+    public void setJourSemaine(String paramJourSemaine) {
+        jourSemaine = paramJourSemaine;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public String toString() {
-        return "Connexion [idClient=" + idClient + ", region=" + region + ", duree=" + duree + "]";
+        return "Connexion [idClient=" + idClient + ", region=" + region + ", duree=" + duree
+                + ", jourSemaine=" + jourSemaine + "]";
     }
 
 }

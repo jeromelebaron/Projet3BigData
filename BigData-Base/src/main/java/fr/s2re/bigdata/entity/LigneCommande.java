@@ -25,6 +25,8 @@ public class LigneCommande {
 
     private Client client;
 
+    private String trimestre;
+
     public LigneCommande() {
         // EMPTY
     }
@@ -137,13 +139,29 @@ public class LigneCommande {
     }
 
     /**
+     * Accesseur en lecture du champ <code>trimestre</code>.
+     * @return le champ <code>trimestre</code>.
+     */
+    public String getTrimestre() {
+        return trimestre;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>trimestre</code>.
+     * @param paramTrimestre la valeur à écrire dans <code>trimestre</code>.
+     */
+    public void setTrimestre(String paramTrimestre) {
+        trimestre = paramTrimestre;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public String toString() {
         return "LigneCommande [numCommande=" + numCommande + ", produit=" + produit + ", quantite="
                 + quantite + ", categorie=" + categorie + ", dateCommande=" + dateCommande
-                + ", client=" + client + "]";
+                + ", client=" + client + ", trimestre=" + trimestre + "]";
     }
 
 }
