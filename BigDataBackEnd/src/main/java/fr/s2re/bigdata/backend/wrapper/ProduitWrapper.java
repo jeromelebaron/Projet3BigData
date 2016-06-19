@@ -21,11 +21,14 @@ public class ProduitWrapper implements Serializable {
      * La référence du produit.
      */
     private String reference;
-    
     /**
      * Le nom du produit.
      */
     private String nom;
+    /**
+     * L'identifiant.
+     */
+    private int idProduit;
 
     /**
      * Constructeur.
@@ -60,19 +63,36 @@ public class ProduitWrapper implements Serializable {
     }
 
     public String getNom() {
-		return nom;
-	}
+        return nom;
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-	@Override
-	public String toString() {
-		return "ProduitWrapper [reference=" + reference + ", nom=" + nom + "]";
-	}
+    /**
+     * Accesseur en lecture du champ <code>idProduit</code>.
+     * @return le champ <code>idProduit</code>.
+     */
+    public int getIdProduit() {
+        return idProduit;
+    }
 
-	
-   
+    /**
+     * Accesseur en écriture du champ <code>idProduit</code>.
+     * @param paramIdProduit la valeur à écrire dans <code>idProduit</code>.
+     */
+    public void setIdProduit(int paramIdProduit) {
+        idProduit = paramIdProduit;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return "ProduitWrapper [reference=" + reference + ", nom=" + nom + ", idProduit="
+                + idProduit + "]";
+    }
 
 }
