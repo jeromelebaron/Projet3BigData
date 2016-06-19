@@ -51,6 +51,7 @@ public class DaoProduit implements IDaoProduit {
             public void apply(Document document) {
                 ProduitWrapper produitWrapper = new ProduitWrapper();
                 produitWrapper.setReference(document.getString("_id"));
+               // produitWrapper.setNom(document.getString("nom"));
                 meilleuresVentes.add(produitWrapper);
             }
         });

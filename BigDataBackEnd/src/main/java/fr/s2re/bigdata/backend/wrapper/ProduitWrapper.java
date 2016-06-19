@@ -21,6 +21,11 @@ public class ProduitWrapper implements Serializable {
      * La référence du produit.
      */
     private String reference;
+    
+    /**
+     * Le nom du produit.
+     */
+    private String nom;
 
     /**
      * Constructeur.
@@ -54,12 +59,20 @@ public class ProduitWrapper implements Serializable {
         reference = paramReference;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String toString() {
-        return "ProduitWrapper [reference=" + reference + "]";
-    }
+    public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	@Override
+	public String toString() {
+		return "ProduitWrapper [reference=" + reference + ", nom=" + nom + "]";
+	}
+
+	
+   
 
 }

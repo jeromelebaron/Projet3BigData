@@ -18,6 +18,10 @@ public class FournisseurWrapper implements Serializable {
      */
     private static final long serialVersionUID = 1L;
     /**
+     * la reference du fournisseur
+     */
+     private String reference;
+    /**
      * Le nom du fournisseur.
      */
     private String nom;
@@ -53,7 +57,15 @@ public class FournisseurWrapper implements Serializable {
         nom = paramNom;
     }
 
-    /** 
+    public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+
+	/** 
      * {@inheritDoc}
      */
     @Override

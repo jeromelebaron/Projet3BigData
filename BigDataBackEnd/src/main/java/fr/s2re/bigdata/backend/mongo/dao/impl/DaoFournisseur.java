@@ -44,7 +44,7 @@ public class DaoFournisseur extends AbstractDAO implements IDaoFournisseur {
             public void apply(Document document) {
                 final FournisseurWrapper fournisseurWrapper = new FournisseurWrapper();
                 fournisseurWrapper.setNom(document.getString("_id"));
-                meilleuresFournisseurs.add(fournisseurWrapper);
+                 meilleuresFournisseurs.add(fournisseurWrapper);
             }
         });
         client.close();
