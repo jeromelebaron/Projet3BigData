@@ -36,7 +36,7 @@ public class DaoProduit implements IDaoProduit {
         MongoDatabase dataBase = client.getDatabase("client");
         MongoCollection<Document> collection = dataBase.getCollection("lignesCommande");
 
-        Document group = Document.parse("{$group:{_id:'$produit.nomProduit',qte:{$sum:1}}}");
+        Document group = Document.parse("{$group:{_id:'$produit',qte:{$sum:1}}}");
         Document sort = Document.parse("{$sort:{qte:-1}}");
         Document limit = Document.parse("{$limit:" + nbMaxVentes + "}");
 
